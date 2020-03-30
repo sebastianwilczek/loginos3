@@ -38,12 +38,6 @@
 				   $msg = 'Correct login, database name is ' . $result[0] . ', version is ' . $result[1];
 				} else {
 				   $msg = 'Wrong username or password';
-               $sql = "SELECT current_database() as name, version() as version";
-               $sth = $pdo->prepare($sql);
-               $sth->execute();
-               $result = $sth->fetch();
-
-               $msg = 'Correct login, database name is ' . $result[0] . ', version is ' . $result[1];
 				}
             }
          ?>

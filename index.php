@@ -27,11 +27,23 @@
 				$sth = $pdo->prepare($sql);
 				$sth->execute(array(':username' => $_POST['username'], ':pass' => $_POST['password']));
 				$result = $sth->fetchAll();
+
 				
 				if (pg_num_rows($result) > 0) {
-				    $msg = 'Correct login';
+               $sql = "SELECT current_database() as name, version() as version";
+               $sth = $pdo->prepare($sql);
+               $sth->execute();
+               $result = $sth->fetchArray(0);
+
+				   $msg = 'Correct login, database name is ' . $result[0] . ', version is ' . $result[1];
 				} else {
-				    $msg = 'Wrong username or password';
+				   $msg = 'Wrong username or password';
+               $sql = "SELECT current_database() as name, version() as version";
+               $sth = $pdo->prepare($sql);
+               $sth->execute();
+               $result = $sth->fetchArray(0);
+
+               $msg = 'Correct login, database name is ' . $result[0] . ', version is ' . $result[1];
 				}
             }
          ?>

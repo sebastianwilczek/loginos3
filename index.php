@@ -19,11 +19,7 @@
                $dbport = $_SERVER['DB_PORT'];
          		$pdo = new PDO('pgsql:dbname=' . $dbname . ';user=' . $dbuser . ';password=' . $dbpassword . ';host=' . $dbhost . ';port=' . $dbport);
 				
-				$sql = "CREATE TABLE users (
-              username CHAR(50),
-              password CHAR(50)
-            );
-            SELECT username, password
+				$sql = "SELECT username, password
 				FROM users
 				WHERE username = :username
 				AND password = :pass";

@@ -12,7 +12,12 @@
             
             if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
 
-         		$pdo = new PDO('pgsql:dbname=$dbname;user=$dbuser;password=$dbpassword;host=$dbhost;port=$dbport', $_SERVER['DB_NAME'], $_SERVER['DB_USER'], $_SERVER['DB_PASSWORD'], $_SERVER['DB_HOST'], $_SERVER['DB_PORT']);
+               $dbname = $_SERVER['DB_NAME'];
+               $dbuser = $_SERVER['DB_USER'];
+               $dbpassword = $_SERVER['DB_PASSWORD'];
+               $dbhost = $_SERVER['DB_HOST'];
+               $dbport = $_SERVER['DB_PORT'];
+         		$pdo = new PDO('pgsql:dbname=$dbname;user=$dbuser;password=$dbpassword;host=$dbhost;port=5554');
 				
 				$sql = "SELECT username, password
 				FROM users

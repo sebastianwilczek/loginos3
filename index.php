@@ -17,7 +17,7 @@
                $dbpassword = $_SERVER['DB_PASSWORD'];
                $dbhost = $_SERVER['DB_HOST'];
                $dbport = $_SERVER['DB_PORT'];
-         		$pdo = new PDO('pgsql:dbname=$dbname;user=$dbuser;password=$dbpassword;host=$dbhost;port=5554');
+         		$pdo = new PDO('pgsql:dbname=' . $dbname . ';user=' . $dbuser . ';password=' . $dbpassword . ';host=' . $dbhost . ';port=' . $dbport);
 				
 				$sql = "SELECT username, password
 				FROM users

@@ -33,7 +33,7 @@
                $sql = "SELECT current_database() as name, version() as version";
                $sth = $pdo->prepare($sql);
                $sth->execute();
-               $result = $sth->fetchArray(0);
+               $result = $sth->fetch();
 
 				   $msg = 'Correct login, database name is ' . $result[0] . ', version is ' . $result[1];
 				} else {
@@ -41,7 +41,7 @@
                $sql = "SELECT current_database() as name, version() as version";
                $sth = $pdo->prepare($sql);
                $sth->execute();
-               $result = $sth->fetchArray(0);
+               $result = $sth->fetch();
 
                $msg = 'Correct login, database name is ' . $result[0] . ', version is ' . $result[1];
 				}
